@@ -4,7 +4,6 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +40,6 @@ public class WebController {
     }
 	
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/grades", method = RequestMethod.GET)
 	
 	ModelAndView  getStudentGrade() {
@@ -49,18 +47,14 @@ public class WebController {
     	final String BASE_DIR = System.getProperty("user.home") + "/Grades";
     	File folder = new File(BASE_DIR);
     	File[] listOfFiles = folder.listFiles();
-    	List list = new ArrayList();
-    	String string = null;
-    	byte[] bytes = null;
+    	List<Student> student = new ArrayList<Student>();
     	// read all files in grade folder
     	for (File file : listOfFiles) {
     	    if (file.isFile()) {
-    	    	
-    	    	
 				try {
-					bytes = Files.readAllBytes(file.toPath());
-					string = new String(bytes ,"UTF-8");
-					 list.add(string);
+					
+					student.add(mapper.readValue(file, Student.class));
+					
 				} catch (IOException e) {
 
 					e.printStackTrace();
@@ -69,9 +63,10 @@ public class WebController {
                
     	    }
     	}
+    	
     	//create model view to display the result locally
     	ModelAndView model = new ModelAndView("home");
-    	model.addObject("lists", list);
+    	model.addObject("student", student);
 
     	return model;
  

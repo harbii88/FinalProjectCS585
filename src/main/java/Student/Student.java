@@ -5,27 +5,23 @@ public class Student {
 
 	String studentName;
 	String studentNumber;
-	String operation;
-	int [] arrayResult  = null;
-	int [] ExpectedArrayResult  = null;
-	boolean codeCorrection;
-	int result;
-	int expectedResult;
+	String operation;	
+	String codeCorrection;
+	String result;
+	String expectedResult;	
 	
-
-	public String getResultAsString() {
-		if (arrayResult == null) {
-			return result + "";
-		} else {
-			String res = "";
-			for(int a : arrayResult) {
-				res += a + "";
-			}
-			return res;
-		}
+	public String getResult() {
+		return result;
 	}
-	
-	
+	public void setResult(String result) {
+		this.result = result;
+	}
+	public String getExpectedResult() {
+		return expectedResult;
+	}
+	public void setExpectedResult(String expectedResult) {
+		this.expectedResult = expectedResult;
+	}
 	public String getStudentName() {
 		return studentName;
 	}
@@ -44,36 +40,15 @@ public class Student {
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
-	public int[] getArrayResult() {
-		return arrayResult;
-	}
-	public void setArrayResult(int[] arrayResult) {
-		this.arrayResult = arrayResult;
-	}
-	public int[] getExpectedArrayResult() {
-		return ExpectedArrayResult;
-	}
-	public void setExpectedArrayResult(int[] expectedArrayResult) {
-		ExpectedArrayResult = expectedArrayResult;
-	}
-	public boolean isCodeCorrection() {
+	
+	public String getCodeCorrection() {
+
 		return codeCorrection;
 	}
-	public void setCodeCorrection(boolean codeCorrection) {
+	public void setCodeCorrection(String codeCorrection) {
 		this.codeCorrection = codeCorrection;
 	}
-	public int getResult() {
-		return result;
-	}
-	public void setResult(int result) {
-		this.result = result;
-	}
-	public int getExpectedResult() {
-		return expectedResult;
-	}
-	public void setExpectedResult(int expectedResult) {
-		this.expectedResult = expectedResult;
-	}
+	
 	
 	
 }

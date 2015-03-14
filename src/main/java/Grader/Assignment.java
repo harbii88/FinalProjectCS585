@@ -4,7 +4,7 @@ public class Assignment {
 	//annotation work with either Add or Sort function  
 	@Grade(operation = "Add")
 	public int add(int x , int y){
-		return x-y;
+		return x+y;
 	}
 	// the checkcode will check the result of sort
 	@Grade(operation = "Sort") 
@@ -31,8 +31,8 @@ public class Assignment {
 public static void  main(String[] args) throws Exception {
 	// the student should include their name, their student number
 	// and their class that include annotation Grade
-	String studentName= "Wahed";
-	String studentNumber = "1050";
+	String studentName= "Hanouf";
+	String studentNumber = "1051";
 	new checkCode(Assignment.class, studentName, studentNumber);
 
 }
